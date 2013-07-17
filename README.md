@@ -22,41 +22,41 @@ I'll implement each data structure twice in each language,
 [A list of Data Structures](http://en.wikipedia.org/wiki/List_of_data_structures)
 to implement:
 * Linear Data Structures
-  * Arrays
-    1. Array (Usually a language primitive - not going to implement myself)
-    1. Bidirectional Map
-    1. Bit array
-    1. Bit field
-    1. Bit board
-    1. Bit map
-    1. Circular buffer
-    1. Control table
-    1. Image
-    1. Dynamic Array (Vector or ArrayList)
-    1. Gap Buffer
-    1. Hashed array tree
-    1. Heightmap
-    1. Lookup table
-    1. Matrix
-    1. Parallel array
-    1. Sorted array
-    1. Sparse array
-    1. Sparse matrix
-    1. Lliffe vector
-    1. Variable-length array
-  * Lists
-    1. Double linked list
-    1. Linked list
-    1. Self-organizing list
-    1. Skip list
-    1. Unrolled linked list
-    1. Vlist
-    1. Xor linked list
-    1. Zipper
-    1. Doubly connected edge list
-    1. Difference list
+	* Arrays
+		1. Array (Usually a language primitive - not going to implement myself)
+		1. Bidirectional Map
+		1. Bit array
+		1. Bit field
+		1. Bit board
+		1. Bit map
+		1. Circular buffer
+		1. Control table
+		1. Image
+		1. Dynamic Array (Vector or ArrayList)
+		1. Gap Buffer
+		1. Hashed array tree
+		1. Heightmap
+		1. Lookup table
+		1. Matrix
+		1. Parallel array
+		1. Sorted array
+		1. Sparse array
+		1. Sparse matrix
+		1. Lliffe vector
+		1. Variable-length array
+	* Lists
+		1. Double linked list
+		1. Linked list
+		1. Self-organizing list
+		1. Skip list
+		1. Unrolled linked list
+		1. Vlist
+		1. Xor linked list
+		1. Zipper
+		1. Doubly connected edge list
+		1. Difference list
 * Trees
-  * Binary Trees
-    1. AA tree
+	* Binary Trees
+		1. AA tree
 	1. AVL tree
 	1. Binary search tree
