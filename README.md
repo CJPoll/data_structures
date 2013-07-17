@@ -8,6 +8,7 @@ complexity for the algorithms that act upon them (particularly sorting
 algorithms).
 
 I'll implement each data structure in order:
+
 1. Ruby
 1. Objective-C
 1. Java
