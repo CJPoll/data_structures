@@ -49,7 +49,7 @@ to implement:
 		1. Variable-length array
 	* Lists
 		1. Double linked list
-		1. Linked list
+		1. Linked list				# Check! (Still need to add error handling)
 		1. Self-organizing list
 		1. Skip list
 		1. Unrolled linked list
