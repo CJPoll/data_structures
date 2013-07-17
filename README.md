@@ -18,14 +18,16 @@ I'll implement each data structure in order:
 I'll implement each data structure twice in each language,
 * Once using standard libraries for the language (Hashes in Ruby, NSDictionary
   in Objective-C, etc.)
-* A second time using only language primitives (No libraries)
+* A second time using only language primitives (No libraries)(Arrays are
+  acceptable)
 
 [A list of Data Structures](http://en.wikipedia.org/wiki/List_of_data_structures)
 to implement:
 * Linear Data Structures
 	* Arrays
 		1. Array (Usually a language primitive - not going to implement myself)
-		1. Bidirectional Map
+		1. Bidirectional Map (Started implementing, but decided to learn more
+		   about structures to back it first)
 		1. Bit array
 		1. Bit field
 		1. Bit board
