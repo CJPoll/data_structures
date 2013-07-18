@@ -71,3 +71,4 @@ class LinkedListNode
 		@value = value
 	end
 end
+
