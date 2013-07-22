@@ -5,8 +5,38 @@ class LinkedList
 		@size = 0
 	end
 
+	def shift_right index
+		return nil if index > @size - 2
+		return nil if index < 0
+		return nil unless @head
+
+		if index == 0
+			previous = nil
+		else
+			previous = get_node index - 1
+		end
+
+		if previous
+			current = previous.next
+		else
+			current = get_node index
+		end
+
+		_next = current.next
+
+		current.next = _next.next
+		_next.next = current
+
+		if previous
+			previous.next = _next
+		else
+			@head = _next
+		end
+	end
+
 	def insert value, index = 0
 		node = setup_node value
+
 		if @size == 0
 			@head = node
 		else
@@ -14,6 +44,7 @@ class LinkedList
 			node.next = prevnode.next
 			prevnode.next = node
 		end
+
 		@size += 1
 	end
 

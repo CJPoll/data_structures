@@ -1,14 +1,9 @@
+package link;
 import java.lang.NullPointerException;
 import java.lang.RuntimeException;
 
 public class LinkedList<T> {
-	public static void main(String[] args) {
-		LinkedList<Integer> list = new LinkedList<Integer>();
-		int five = list.pushValue(5).pushValue(6).getIndex(0);
-		System.out.println("Should be 5: " + five);
-		int six = list.getIndex(1);
-		System.out.println("Should be 6: " + six);
-	}
+
 	private LinkedListNode<T> head;
 	private int size;
 
@@ -65,6 +60,14 @@ public class LinkedList<T> {
 		}
 
 		return currentNode;
+	}
+
+	private LinkedList<T> shiftRight(int index) {
+		return this;
+	}
+
+	private LinkedList<T> shiftLeft(int index) {
+		return this;
 	}
 
 	private class LinkedListNode<T> {

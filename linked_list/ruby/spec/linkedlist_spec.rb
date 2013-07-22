@@ -57,6 +57,36 @@ describe "Linked List" do
 		six.should  == 6
 	end
 
+	it "should shift the head node to the right without losing the rest of the list" do
+		@list.push 5
+		@list.push 6
+		@list.shift_right 0
+
+		six = @list.get 0
+		six.should == 6
+
+		five = @list.get 1
+		five.should == 5
+	end
+
+	it "should shift a central node to the right without losing the rest of the list" do
+		@list.push 5
+		@list.push 6
+		@list.push 7
+		@list.push 8
+
+		@list.shift_right 1
+
+		five = @list.get 0
+		five.should == 5
+
+		seven = @list.get 1
+		seven.should == 7
+
+		six = @list.get 2
+		six.should == 6
+	end
+
 	it "should delete an element without losing the rest of the list" do
 		@list.push 5
 		@list.push 7
