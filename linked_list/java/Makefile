@@ -6,7 +6,7 @@ all:
 test: all
 	javac -d ./test -cp ./bin:/usr/share/java/junit4.jar ./test/*.java
 	java -cp ./bin:/usr/share/java/junit4.jar:./test org.junit.runner.JUnitCore Test$(APPLICATION)
-	rm ./test/*.class
+	rm -rf test/*.class
 
 run: all
 	java -classpath ./bin $(APPLICATION)

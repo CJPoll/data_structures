@@ -1,4 +1,5 @@
 package link;
+
 import java.lang.NullPointerException;
 import java.lang.RuntimeException;
 
@@ -16,9 +17,28 @@ public class LinkedList<T> {
 		return this.size;
 	}
 
-	public T getIndex(int index) {
+	public T getValue(int index) {
 		LinkedListNode<T> node = getNode(index);
 		return node.value;
+	}
+
+	public LinkedList<T> insert(T value, int index) {
+		if (index > this.size) {
+			throw new RuntimeException("No such index");
+		}
+
+		LinkedListNode<T> node = new LinkedListNode<T>(value);
+
+		if (index == 0) {
+			node.setNext(this.head);
+			this.head = node;
+		} else {
+			LinkedListNode<T> previous = getNode(index - 1);
+			node.setNext(previous.getNext());
+			previous.setNext(node);
+		}
+
+		return this;
 	}
 
 	public LinkedList<T> pushValue(T value) {
@@ -36,6 +56,43 @@ public class LinkedList<T> {
 		}
 
 		this.size++;
+
+		return this;
+	}
+
+	public LinkedList<T> mergeSort() {
+		mergeSort(this);
+		return this;
+	}
+
+	private LinkedList<T> mergeSort(LinkedList<T> list) {
+		return list;
+	}
+
+	public LinkedList<T> bubbleSort() {
+		// A list of length 1 or 0 is already sorted
+		if (this.size <= 1) {
+			return this;
+		}
+
+		boolean hasChanged = false;
+
+		do {
+			hasChanged = false;
+			int currentIndex = 0;
+			LinkedListNode<T> current = this.head;
+			while (current.getNext() != null) {
+				Comparable currentValue = (Comparable)current.getValue();
+				Comparable nextValue = (Comparable)current.getNext().getValue();
+				if (currentValue.compareTo(nextValue) > 0) {
+					shiftRight(currentIndex);
+					hasChanged = true;
+				} else {
+					current = current.getNext();
+				}
+				currentIndex++;
+			}
+		} while (hasChanged);
 
 		return this;
 	}
@@ -63,10 +120,27 @@ public class LinkedList<T> {
 	}
 
 	private LinkedList<T> shiftRight(int index) {
-		return this;
-	}
+		// Can't shift the last node right!
+		if (index >= this.size - 1 || index < 0) {
+			throw new RuntimeException();
+		}
 
-	private LinkedList<T> shiftLeft(int index) {
+		if (index == 0) {
+			LinkedListNode<T> temp = this.head;
+			this.head = temp.getNext();
+			temp.setNext(this.head.getNext());
+			this.head.setNext(temp);
+		} else {
+			LinkedListNode<T> previous = getNode(index - 1);
+			LinkedListNode<T> shifting = previous.getNext();
+			LinkedListNode<T> next = shifting.getNext();
+			LinkedListNode<T> tail = next.getNext();
+
+			previous.setNext(next);
+			shifting.setNext(tail);
+			next.setNext(shifting);
+		}
+
 		return this;
 	}
 

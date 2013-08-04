@@ -5,26 +5,34 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 APPLICATION	Makefile	/^APPLICATION=LinkedList$/;"	m
-LinkedList	src/link/LinkedList.java	/^	public LinkedList() {$/;"	m	class:LinkedList
-LinkedList	src/link/LinkedList.java	/^public class LinkedList<T> {$/;"	c
-LinkedListNode	src/link/LinkedList.java	/^		public LinkedListNode(T value) {$/;"	m	class:LinkedList.LinkedListNode
-LinkedListNode	src/link/LinkedList.java	/^	private class LinkedListNode<T> {$/;"	c	class:LinkedList
+LinkedList	src/LinkedList.java	/^	public LinkedList() {$/;"	m	class:LinkedList
+LinkedList	src/LinkedList.java	/^public class LinkedList<T> {$/;"	c
+LinkedListNode	src/LinkedList.java	/^		public LinkedListNode(T value) {$/;"	m	class:LinkedList.LinkedListNode
+LinkedListNode	src/LinkedList.java	/^	private class LinkedListNode<T> {$/;"	c	class:LinkedList
 TestLinkedList	test/TestLinkedList.java	/^	public TestLinkedList(String name) {$/;"	m	class:TestLinkedList
 TestLinkedList	test/TestLinkedList.java	/^public class TestLinkedList extends TestCase {$/;"	c
-getIndex	src/link/LinkedList.java	/^	public T getIndex(int index) {$/;"	m	class:LinkedList
-getNext	src/link/LinkedList.java	/^		public LinkedListNode<T> getNext() {$/;"	m	class:LinkedList.LinkedListNode
-getNode	src/link/LinkedList.java	/^	private LinkedListNode<T> getNode(int index) throws RuntimeException {$/;"	m	class:LinkedList	file:
-getSize	src/link/LinkedList.java	/^	public int getSize() {$/;"	m	class:LinkedList
-getValue	src/link/LinkedList.java	/^		public T getValue() {$/;"	m	class:LinkedList.LinkedListNode
-head	src/link/LinkedList.java	/^	private LinkedListNode<T> head;$/;"	f	class:LinkedList	file:
-link	src/link/LinkedList.java	/^package link;$/;"	p
-main	src/link/LinkedList.java	/^	public static void main(String[] args) {$/;"	m	class:LinkedList
-next	src/link/LinkedList.java	/^		private LinkedListNode<T> next;$/;"	f	class:LinkedList.LinkedListNode	file:
-pushValue	src/link/LinkedList.java	/^	public LinkedList<T> pushValue(T value) {$/;"	m	class:LinkedList
-setNext	src/link/LinkedList.java	/^		public LinkedListNode<T> setNext(LinkedListNode<T> node) {$/;"	m	class:LinkedList.LinkedListNode
-shiftLeft	src/link/LinkedList.java	/^	private LinkedList<T> shiftLeft(int index) {$/;"	m	class:LinkedList	file:
-shiftRight	src/link/LinkedList.java	/^	private LinkedList<T> shiftRight(int index) {$/;"	m	class:LinkedList	file:
-size	src/link/LinkedList.java	/^	private int size;$/;"	f	class:LinkedList	file:
+getNext	src/LinkedList.java	/^		public LinkedListNode<T> getNext() {$/;"	m	class:LinkedList.LinkedListNode
+getNode	src/LinkedList.java	/^	private LinkedListNode<T> getNode(int index) throws RuntimeException {$/;"	m	class:LinkedList	file:
+getSize	src/LinkedList.java	/^	public int getSize() {$/;"	m	class:LinkedList
+getValue	src/LinkedList.java	/^		public T getValue() {$/;"	m	class:LinkedList.LinkedListNode
+getValue	src/LinkedList.java	/^	public T getValue(int index) {$/;"	m	class:LinkedList
+head	src/LinkedList.java	/^	private LinkedListNode<T> head;$/;"	f	class:LinkedList	file:
+insert	src/LinkedList.java	/^	public LinkedList<T> insert(T value, int index) {$/;"	m	class:LinkedList
+insertionSort	src/LinkedList.java	/^	public LinkedList<T> insertionSort() {$/;"	m	class:LinkedList
+link	src/LinkedList.java	/^package link;$/;"	p
+next	src/LinkedList.java	/^		private LinkedListNode<T> next;$/;"	f	class:LinkedList.LinkedListNode	file:
+pushValue	src/LinkedList.java	/^	public LinkedList<T> pushValue(T value) {$/;"	m	class:LinkedList
+setNext	src/LinkedList.java	/^		public LinkedListNode<T> setNext(LinkedListNode<T> node) {$/;"	m	class:LinkedList.LinkedListNode
+shiftLeft	src/LinkedList.java	/^	private LinkedList<T> shiftLeft(int index) {$/;"	m	class:LinkedList	file:
+shiftRight	src/LinkedList.java	/^	private LinkedList<T> shiftRight(int index) {$/;"	m	class:LinkedList	file:
+size	src/LinkedList.java	/^	private int size;$/;"	f	class:LinkedList	file:
 testGetIndex	test/TestLinkedList.java	/^	public static void testGetIndex() {$/;"	m	class:TestLinkedList
 testGetSize	test/TestLinkedList.java	/^	public static void testGetSize() {$/;"	m	class:TestLinkedList
-value	src/link/LinkedList.java	/^		private T value;$/;"	f	class:LinkedList.LinkedListNode	file:
+testInsertValueHead	test/TestLinkedList.java	/^	public static void testInsertValueHead() {$/;"	m	class:TestLinkedList
+testInsertValueMiddle	test/TestLinkedList.java	/^	public static void testInsertValueMiddle() {$/;"	m	class:TestLinkedList
+testPushValue	test/TestLinkedList.java	/^	public static void testPushValue() {$/;"	m	class:TestLinkedList
+testShiftLeftMiddle	test/TestLinkedList.java	/^	public static void testShiftLeftMiddle() {$/;"	m	class:TestLinkedList
+testShiftLeftTail	test/TestLinkedList.java	/^	public static void testShiftLeftTail() {$/;"	m	class:TestLinkedList
+testShiftRightHead	test/TestLinkedList.java	/^	public static void testShiftRightHead() {$/;"	m	class:TestLinkedList
+testShiftRightMiddle	test/TestLinkedList.java	/^	public static void testShiftRightMiddle() {$/;"	m	class:TestLinkedList
+value	src/LinkedList.java	/^		private T value;$/;"	f	class:LinkedList.LinkedListNode	file:
