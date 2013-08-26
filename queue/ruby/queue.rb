@@ -9,7 +9,7 @@ class Queue
 		@list.size
 	end
 
-	def push value
+	def enqueue value
 		@list.push value
 		self
 	end
@@ -18,7 +18,7 @@ class Queue
 		@list.get 0
 	end
 
-	def pop
+	def dequeue
 		value = @list.get 0
 		@list.remove 0
 		value
