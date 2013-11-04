@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Werror -Wall -c  
+CFLAGS = -Werror -Wall -c -std=c99
 LDFLAGS = -Werror -Wall
 LOADLIBES = -lgsl
 
@@ -30,7 +30,7 @@ $(OBJECTDIR)%.o: $(SOURCEDIR)%.c
 	$(CC) $(CFLAGS) -g $^ -o $@
 
 tests: $(TESTOBJECTS) $(OBJECTS) 
-	$(CC) $(LDFLAGS) $^ ~/local/lib/libcunit.a -o $(EXECDIR)$@
+	$(CC) $(LDFLAGS) $^ /usr/local/lib/libcunit.a -o $(EXECDIR)$@
 
 test: tests
 	./bin/tests
