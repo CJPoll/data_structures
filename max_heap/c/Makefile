@@ -1,26 +1,38 @@
-COMPILER=gcc
-CFLAGS=-Werror -Wall -c
-LDFLAGS=-Werror -Wall
+CC = gcc
+CFLAGS = -Werror -Wall -c -std=c99
+LDFLAGS = -Werror -Wall
+LOADLIBES = -lgsl
 
-SOURCEDIR=./src/
-SOURCES=linked_list.c stack.c
+SOURCEDIR = ./src/
+SOURCES = max_heap.c dynamic_array.c
+TESTSRCS = max_heap_test.c
 
-OBJECTDIR=./obj/
-OBJECTFILES=$(SOURCES:.c=.o)
+OBJECTDIR = ./obj/
+OBJECTFILES = $(SOURCES:.c=.o)
+OBJECTS = $(foreach OBJECT, $(OBJECTFILES), $(OBJECTDIR)$(OBJECT));
 
-OBJECTS=$(foreach OBJECT, $(OBJECTFILES), $(OBJECTDIR)$(OBJECT))
+EXECDIR = ./bin/
+EXECUTABLE = max_heap
 
-EXECUTABLE=./bin/stack
+TESTDIR = ./test/
+TESTOBJFILES = $(TESTSRCS:.c=.o)
+TESTOBJECTS = $(foreach TESTOBJECT, $(TESTOBJFILES), $(TESTDIR$)$(TESTOBJECT))
 
 .PHONY : clean
 
-all: $(EXECUTABLE)
+all: $(OBJECTS)
 
-$(EXECUTABLE): $(OBJECTS)
-	$(COMPILER) $(LDFLAGS) $(OBJECTS) -o $@
+$(TESTDIR)%.o: $(TESTDIR)%.c
+	$(CC) $(CFLAGS) -g $^ -o $@
 
-$(OBJECTDIR)%.o : $(SOURCEDIR)%.c
-	$(COMPILER) $(CFLAGS) $< -o $@
+$(OBJECTDIR)%.o: $(SOURCEDIR)%.c
+	$(CC) $(CFLAGS) -g $^ -o $@
+
+tests: $(TESTOBJECTS) $(OBJECTS) 
+	$(CC) $(LDFLAGS) $^ /usr/local/lib/libcunit.a -o $(EXECDIR)$@
+
+test: tests
+	./bin/tests
 
 clean:
-	rm edit $(OBJECTS)
+	-rm ./bin/* ./obj/* ./test/*.o

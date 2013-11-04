@@ -4,14 +4,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "dynamic_array.h"
+
 typedef struct Heap {
-	void *array;
+	array *array;
 	int size;
-	struct Heap *(*insert)(struct Heap*);
 } Heap;
 
-Heap *heapCreate(int starting_size);
-Heap *heapInsert(Heap *heap);
+Heap *heapCreate();
+Heap *heapSort(Heap *heap);
+Heap *heapInsert(Heap *heap, void *value);
 void *heapPop(Heap *heap);
+int getLeftChild(int parent);
+int getRightChild(int parent);
+int getParent(int child);
 
 #endif
