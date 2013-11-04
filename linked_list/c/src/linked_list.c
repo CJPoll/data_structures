@@ -1,24 +1,9 @@
 #include "linked_list.h"
 
-
-
 /*
  * Private API
  */
 struct Node *traverseList(struct Node *node, const int position);
-
-
-
-// =============================================================================
-// Public Functions
-// ============================================================================
-
-int
-main() {
-	return 0;
-}
-
-
 
 LinkedList *
 createLinkedList() {
@@ -34,16 +19,15 @@ createLinkedList() {
 	return linkedList;
 };
 
-LinkedList *insertValue(LinkedList *linkedList, void *value, int position) {
-	//("Inserting value: %d\n", *(int*)value);
+LinkedList *insertList(LinkedList *linkedList, void *value, int position) {
 	int size = linkedList -> size;
 	if (size < position - 1) return linkedList;
 
 	struct Node *prev = traverseList(linkedList -> head, position - 1);
 	struct Node *new = malloc(sizeof(struct Node));
 
-	if (prev == NULL) {
-		new -> next = NULL;
+	if (position == 1 && prev == linkedList -> head) {
+		new -> next = linkedList -> head;
 		linkedList -> head = new;
 	} else {
 		new -> next = prev -> next;
@@ -54,31 +38,15 @@ LinkedList *insertValue(LinkedList *linkedList, void *value, int position) {
 
 	linkedList -> size++;
 
-	//("Inserted value: %d\n", *(int*)value);
-
-	return linkedList;
-}
-
-LinkedList *
-pushValue(LinkedList *linkedList, void *value) {
-	//("Pushing value: %d\n", *(int*)value);
-
-	int size = linkedList -> size;
-	insertValue(linkedList, value, size + 1);
-
-	//("Pushed value: %d\n", *(int*)value);
-
 	return linkedList;
 }
 
 void *
-getValue(LinkedList *linkedList, int position) {
-	//("Getting value from linked list at position: %d\n", position);
+retrieveList(LinkedList *linkedList, int position) {
 
 	int size = linkedList -> size;
 	void *value = 0;
 
-	//("position: %d size: %d\n", position, size);
 	if (position <= size) {
 		//("Retrieving value\n");
 		struct Node *head = linkedList -> head;
@@ -86,20 +54,19 @@ getValue(LinkedList *linkedList, int position) {
 		value = target -> value;
 	}
 
-	//("Got value: %p from linked list at position: %d\n", value, position);
-
 	return value;
 }
 
 LinkedList *
-removeValue(LinkedList *linkedList, int position) {
-	//("Removing node from position: %d\n", position);
+removeList(LinkedList *linkedList, int position) {
 	int size = linkedList -> size;
 	if (size < 0 || size < position) return linkedList;
-	struct Node *node = 0;
-	if (size == 1) {
+
+	struct Node *node = NULL;
+
+	if (position == 1) {
 		node = linkedList -> head;
-		linkedList -> head = NULL;
+		linkedList -> head = node -> next;
 	} else {
 
 		struct Node *prev = linkedList -> head;
@@ -110,28 +77,53 @@ removeValue(LinkedList *linkedList, int position) {
 	}
 
 	free(node);
-	node = 0;
+	node = NULL;
 
 	linkedList -> size--;
-
-	//("Removed node from position: %d\n", position);
 
 	return linkedList;
 }
 
-void
-*pop(LinkedList *linkedList) {
+void *
+popTailList(LinkedList *linkedList) {
 	int size = linkedList -> size;
 	struct Node *node = traverseList(linkedList -> head, size);
 	void *value = node -> value;
-	removeValue(linkedList, size);
+	removeList(linkedList, size);
 	return value;
 }
 
-void 
-*peek(LinkedList *linkedList) {
+void *
+peekTailList(LinkedList *linkedList) {
 	struct Node *node = traverseList(linkedList -> head, linkedList -> size);
 	return node -> value;
+}
+
+LinkedList *
+pushHeadList(LinkedList *linkedList, void *value) {
+	insertList(linkedList, value, 1);
+
+	return linkedList;
+}
+
+LinkedList *
+pushTailList(LinkedList *linkedList, void *value) {
+	insertList(linkedList, value, linkedList -> size + 1);
+
+	return linkedList;
+}
+
+void *
+peekHeadList(LinkedList *linkedList) {
+	return retrieveList(linkedList, 1);
+}
+
+void *
+popHeadList(LinkedList *linkedList) {
+	struct Node *node = traverseList(linkedList -> head, 1);
+	void *value = node -> value;
+	removeList(linkedList, 1);
+	return value;
 }
 
 
