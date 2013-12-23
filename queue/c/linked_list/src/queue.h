@@ -21,4 +21,7 @@ sizeQueue(Queue *queue);
 Queue *
 flushQueue(Queue *queue);
 
+void
+destroyQueue(Queue *queue);
+
 #endif

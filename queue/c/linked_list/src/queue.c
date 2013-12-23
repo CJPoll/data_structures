@@ -39,3 +39,8 @@ flushQueue(Queue *queue) {
 	queue -> list = createLinkedList();
 	return queue;
 }
+
+void
+destroyQueue(Queue *queue) {
+	free(queue);
+}
